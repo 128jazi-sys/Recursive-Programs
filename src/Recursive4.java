@@ -1,24 +1,25 @@
 public class Recursive4 {
-    public static void recursiveFour(int size) {
-        String number = "";
-        int middle = size/2;
-        if (size == number.length()) {
-            System.out.println(number);
+    public static void recursiveFour(String s, int n, int left, int right) {
+        if (s.length() == n) {
+            if (left == right) {
+                System.out.println(s);
+            }
             return;
         }
-        if (number.length() == 0) {
-            number = number + ""
-        }
-        if (Integer.parseInt(number.substring(0, middle)) <
-                Integer.parseInt(number.substring(middle)) && number.length() < size) {
-            number = number + "1";
-            recursiveFour((number).length());
-        }
-        else if (Integer.parseInt(number.substring(0, middle)) >
-                Integer.parseInt(number.substring(middle)) && number.length() < size) {
-            number = number + "0";
-            recursiveFour((number).length());
-        }
 
+        int pos = s.length();
+
+        if (pos < n/2) {
+            recursiveFour(s + "0",n,left, right);
+            recursiveFour(s+"1", n, left+1, right);
+        }
+        else if (pos >= (n+1)/2) {
+            recursiveFour(s + "0",n,left, right);
+            recursiveFour(s + "1", n, left, right+1);
+        }
+        else {
+            recursiveFour(s+"0", n, left, right);
+            recursiveFour(s+"1", n, left, right);
+        }
     }
 }
