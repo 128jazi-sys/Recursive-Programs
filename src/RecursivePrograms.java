@@ -5,5 +5,6 @@ public class RecursivePrograms {
         System.out.println(Recursive2.recursiveTwo(3, 2));
         Recursive3.recursiveThree(1, "");
         Recursive4.recursiveFour("", 4, 0, 0);
+        System.out.println(Recursive5.recursiveFive(250,2,3));
     }
 }
